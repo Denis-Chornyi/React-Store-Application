@@ -20,6 +20,10 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
+  const totalQuantity = useSelector((state: RootState) =>
+    state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+  );
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -46,11 +50,20 @@ function App() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold text-gray-900">React Store Application</h1>
+            <h1 className="text-3xl font-bold text-gray-900">
+              React Store Application
+            </h1>
             <button
               onClick={() => setShowCart(!showCart)}
-              className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:text-blue-500 transition-colors"
+              className="relative flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:text-blue-500 transition-colors"
             >
+              {totalQuantity === 0 ? (
+                ""
+              ) : (
+                <span className="absolute -top-2 -left-2 w-5 h-5 bg-red-500 text-sm rounded-full">
+                  {totalQuantity}
+                </span>
+              )}
               <ShoppingCart className="w-5 h-5" />
               Cart
             </button>
