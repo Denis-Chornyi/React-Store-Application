@@ -1,6 +1,6 @@
 # React Store Application
 
-### [GitHub Page]()
+### [GitHub Page](https://react-store-app01.netlify.app/)
 
 A modern, responsive e-commerce application built with React, TypeScript, and TailwindCSS.
 
@@ -48,4 +48,6 @@ npm run build
 ```
 This will create an optimized production build in the `dist` directory.
 
+### Author
 
+- [Denis Chornyi](https://github.com/Denis-Chornyi)
