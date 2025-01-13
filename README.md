@@ -28,7 +28,6 @@ The application follows a modular structure:
 - `src/components/*` - Reusable UI components
 - `src/store/*` - Redux store configuration and slices
 - `src/types/*` - TypeScript interfaces
-- `src/hooks/*` - Custom React hooks
 
 ## API Integration
 The application integrates with the Fake Store API to fetch:
