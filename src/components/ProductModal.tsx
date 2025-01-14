@@ -56,7 +56,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                   dispatch(addItem(product));
                   onClose();
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-400 to-indigo-600 hover:from-blue-500 hover:to-indigo-700  text-white py-3 px-6 rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 text-white py-3 px-6 rounded-lg bg-gradient-to-r from-blue-400 to-indigo-600 hover:from-blue-500 hover:to-indigo-700 transition-colors"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Add to Cart
