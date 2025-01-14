@@ -4,7 +4,7 @@ import { RootState } from "../store/store";
 import { removeItem, updateQuantity } from "../store/cartSlice";
 import { Minus, Plus, Trash2 } from "lucide-react";
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const { items, total } = useSelector((state: RootState) => state.cart);
 
@@ -71,3 +71,5 @@ export const Cart: React.FC = () => {
     </div>
   );
 };
+
+export default Cart;

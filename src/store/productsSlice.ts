@@ -15,17 +15,19 @@ const initialState: ProductsState = {
   categories: [],
 };
 
-export const fetchProducts = createAsyncThunk(
+export const fetchProducts = createAsyncThunk<Product[]>(
   "products/fetchProducts",
-  async () => {
-    const products = await Promise.all(
-      Array.from({ length: 20 }, (_, i) =>
-        fetch(`https://fakestoreapi.com/products/${i + 1}`).then((res) =>
-          res.json()
-        )
-      )
-    );
-    return products;
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await fetch("https://fakestoreapi.com/products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
+      const products: Product[] = await response.json();
+      return products;
+    } catch {
+      return rejectWithValue("Failed to fetch products");
+    }
   }
 );
 

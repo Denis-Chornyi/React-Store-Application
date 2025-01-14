@@ -9,10 +9,7 @@ interface ProductCardProps {
   onClick: () => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
-  product,
-  onClick,
-}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -44,7 +41,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <span className="text-xl font-bold">${product.price}</span>
           <button
             onClick={handleAddToCart}
-            className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 to-indigo-600 hover:from-blue-500 hover:to-indigo-700 transition-colors"
+            className="flex items-center gap-2 text-white px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 to-indigo-600 hover:from-blue-500 hover:to-indigo-700 transition-colors"
           >
             <ShoppingCart className="w-4 h-4" />
             Add to Cart
@@ -54,3 +51,5 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     </div>
   );
 };
+
+export default ProductCard;
